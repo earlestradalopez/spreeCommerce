@@ -1,5 +1,5 @@
 Project Structure
-
+`
 project/
 │
 ├── tests/
@@ -18,6 +18,7 @@ project/
 │
 ├── requirements.txt
 └── pytest.ini
+`
 
 ⚙️ Step-by-Step Implementation
 1. Install Playwright for Python
@@ -28,4 +29,4 @@ pip install playwright pytest
 playwright install
 
 2. Run Automation
-`pytest` -q
+`pytest -q`
