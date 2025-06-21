@@ -1,4 +1,4 @@
-from pages.base_page import BasePage
+from pages.base_page import BasePage, expect
 
 class MainPage(BasePage):
     def __init__(self, page):
@@ -70,3 +70,8 @@ class MainPage(BasePage):
                 waitText = False
             
         assert actual_text == 'Your order is confirmed!'
+  
+    def validate_text(self, text: str, selector: str):
+        self.page.wait_for_selector(selector)
+        product_title = self.page.locator(selector)
+        expect(product_title).to_contain_text(text)
