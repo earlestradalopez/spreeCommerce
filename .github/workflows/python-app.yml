@@ -32,7 +32,7 @@ jobs:
         run: |
           pytest --headed --maxfail=1 --disable-warnings -v
 
-      - name: Upload test artifacts (optional)
+      - name: Upload test artifacts
         if: failure()
         uses: actions/upload-artifact@v4
         with:
