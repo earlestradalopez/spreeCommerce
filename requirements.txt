@@ -1,3 +1,2 @@
 playwright
 pytest-playwright
-pytest-asyncio
