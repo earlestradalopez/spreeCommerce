@@ -15,23 +15,22 @@ def test_order(page):
     time.sleep(2)
     main_page.validate_page('SHOP ALL')
     
-    main_page.selectshopAllproduct()
     
-    #time.sleep(2)
-    #main_page.validate_page('RIPPED T-SHIRT')
-
-    main_page.selectshopAllproduct()
+    main_page.selectshopAllproduct()    
+    main_page.validate_text("Ripped T-Shirt", "#product-details-page > div.lg\:col-span-5.lg\:col-start-8 > div > div.hidden.lg\:block")
+    
     main_page.selectSize('SMALL')
     main_page.addToCartItem()
+    main_page.validate_text("Shipping & taxes calculated at checkout", "#cart_summary")
 
     main_page.checkout()
+    main_page.validate_text("This is the Spree Commerce DEMO checkout", "#checkout-message")
 
     main_page.saveAndContinue()
+    main_page.validate_text("Delivery method from Shop location", "#methods > div > h5")
     main_page.saveAndContinue()
+    main_page.validate_text("All transactions are secure and encrypted", "#checkout_payment_methods")
 
     main_page.select_paycheck()
     main_page.proceedCheckOut()
-
     main_page.validate_order()
-
-
