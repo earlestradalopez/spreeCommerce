@@ -15,6 +15,7 @@ class BasePage:
     def gotoSignUp(self, url: str):
         self.page.goto(url, wait_until="networkidle")        
         self.page.click("#section-3942 > header > nav > div.page-container > div > div.flex.items-center.gap-4.flex-1.justify-end > div:nth-child(2) > button > svg")
+        self.page.wait_for_selector("a:has-text('Sign Up')")
         self.page.click("a:has-text('Sign Up')")
         waitText = True
         while(waitText):
