@@ -1,9 +1,8 @@
 import pytest
 from pages.login_page import LoginPage
 
-@pytest.mark.asyncio
-async def test_valid_login(page):
+def test_login_valid_user(page):
     login_page = LoginPage(page)
-    await login_page.navigate("https://demo.spreecommerce.org")
-    await login_page.login("test_email@test.com", "TestPassword")
-    assert "Spree Commerce DEMO" in await page.title()
+    login_page.gotoLogin("https://demo.spreecommerce.org")    
+    login_page.login("test_email@test.com", "TestPassword")    
+    login_page.validate_flash_message('Signed in successfully.')
