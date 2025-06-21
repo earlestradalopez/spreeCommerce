@@ -5,7 +5,7 @@ class BasePage:
         self.page = page
 
     def gotoLogin(self, url: str):
-        self.page.goto(url)        
+        self.page.goto(url, wait_until="networkidle")        
         self.page.click("#section-3942 > header > nav > div.page-container > div > div.flex.items-center.gap-4.flex-1.justify-end > div:nth-child(2) > button > svg")
 
     def logOut(self):        
@@ -13,7 +13,7 @@ class BasePage:
         self.page.locator("button", has_text="Log out").click()
         
     def gotoSignUp(self, url: str):
-        self.page.goto(url)        
+        self.page.goto(url, wait_until="networkidle")        
         self.page.click("#section-3942 > header > nav > div.page-container > div > div.flex.items-center.gap-4.flex-1.justify-end > div:nth-child(2) > button > svg")
         self.page.click("a:has-text('Sign Up')")
         waitText = True
